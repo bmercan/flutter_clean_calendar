@@ -401,7 +401,7 @@ class _CalendarState extends State<Calendar> {
                       DateFormat('HH:mm').format(event.endTime).toString();
                   return Container(
                     color: widget.eventTileColor ?? Colors.transparent,
-                    height: 60.0,
+                    // height: 60.0,
                     margin: widget.eventTileMargin ?? EdgeInsets.all(0),
                     padding: widget.eventTilePadding ?? EdgeInsets.all(0),
                     child: InkWell(
