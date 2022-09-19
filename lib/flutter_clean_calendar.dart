@@ -94,6 +94,9 @@ class Calendar extends StatefulWidget {
   final Color? bottomBarArrowColor;
   final Color? bottomBarColor;
   final String? expandableDateFormat;
+  final Color? eventTileColor;
+  final EdgeInsets? eventTilePadding;
+  final EdgeInsets? eventTileMargin;
 
   Calendar({
     this.onMonthChanged,
@@ -123,6 +126,9 @@ class Calendar extends StatefulWidget {
     this.bottomBarArrowColor,
     this.bottomBarColor,
     this.expandableDateFormat = 'EEEE MMMM dd, yyyy',
+    this.eventTileColor,
+    this.eventTilePadding,
+    this.eventTileMargin,
   });
 
   @override
@@ -373,6 +379,7 @@ class _CalendarState extends State<Calendar> {
     }
   }
 
+  //eventTile
   Widget get eventList {
     if (widget.eventListBuilder == null) {
       return Expanded(
@@ -386,8 +393,10 @@ class _CalendarState extends State<Calendar> {
                   final String end =
                       DateFormat('HH:mm').format(event.endTime).toString();
                   return Container(
-                    color: Colors.red,
+                    color: widget.eventTileColor ?? Colors.transparent,
                     height: 60.0,
+                    margin: widget.eventTileMargin ?? EdgeInsets.all(0),
+                    padding: widget.eventTilePadding ?? EdgeInsets.all(0),
                     child: InkWell(
                       onTap: () {
                         if (widget.onEventSelected != null) {
