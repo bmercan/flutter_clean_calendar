@@ -403,8 +403,10 @@ class _CalendarState extends State<Calendar> {
                   final String end =
                       DateFormat('HH:mm').format(event.endTime).toString();
                   return Container(
-                    decoration: widget.eventTileDecoration ?? BoxDecoration(),
-                    color: widget.eventTileColor ?? Colors.transparent,
+                    decoration: widget.eventTileDecoration ??
+                        BoxDecoration(
+                          color: widget.eventTileColor ?? Colors.transparent,
+                        ),
                     height: 60.0,
                     margin: widget.eventTileMargin ?? EdgeInsets.all(0),
                     padding: widget.eventTilePadding ?? EdgeInsets.all(0),
