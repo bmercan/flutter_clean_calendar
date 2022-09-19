@@ -97,39 +97,46 @@ class Calendar extends StatefulWidget {
   final Color? eventTileColor;
   final EdgeInsets? eventTilePadding;
   final EdgeInsets? eventTileMargin;
+  final TextStyle? eventTileTrailingTextStyle;
+  final TextStyle? eventTileSummaryTextStyle;
+  final TextStyle? eventTileDescriptionTextStyle;
+  final bool eventColorVisible;
 
-  Calendar({
-    this.onMonthChanged,
-    this.onDateSelected,
-    this.onRangeSelected,
-    this.onExpandStateChanged,
-    this.onEventSelected,
-    this.hideBottomBar: false,
-    this.isExpandable: false,
-    this.events,
-    this.dayBuilder,
-    this.eventListBuilder,
-    this.hideTodayIcon: false,
-    this.hideArrows: false,
-    this.selectedColor,
-    this.todayColor,
-    this.todayButtonText: 'Today',
-    this.eventColor,
-    this.eventDoneColor,
-    this.initialDate,
-    this.isExpanded = false,
-    this.weekDays = const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    this.locale = 'en_US',
-    this.startOnMonday = false,
-    this.dayOfWeekStyle,
-    this.bottomBarTextStyle,
-    this.bottomBarArrowColor,
-    this.bottomBarColor,
-    this.expandableDateFormat = 'EEEE MMMM dd, yyyy',
-    this.eventTileColor,
-    this.eventTilePadding,
-    this.eventTileMargin,
-  });
+  Calendar(
+      {this.onMonthChanged,
+      this.onDateSelected,
+      this.onRangeSelected,
+      this.onExpandStateChanged,
+      this.onEventSelected,
+      this.hideBottomBar: false,
+      this.isExpandable: false,
+      this.events,
+      this.dayBuilder,
+      this.eventListBuilder,
+      this.hideTodayIcon: false,
+      this.hideArrows: false,
+      this.selectedColor,
+      this.todayColor,
+      this.todayButtonText: 'Today',
+      this.eventColor,
+      this.eventDoneColor,
+      this.initialDate,
+      this.isExpanded = false,
+      this.weekDays = const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      this.locale = 'en_US',
+      this.startOnMonday = false,
+      this.dayOfWeekStyle,
+      this.bottomBarTextStyle,
+      this.bottomBarArrowColor,
+      this.bottomBarColor,
+      this.expandableDateFormat = 'EEEE MMMM dd, yyyy',
+      this.eventTileColor,
+      this.eventTilePadding,
+      this.eventTileMargin,
+      this.eventTileTrailingTextStyle,
+      this.eventColorVisible = true,
+      this.eventTileDescriptionTextStyle,
+      this.eventTileSummaryTextStyle});
 
   @override
   _CalendarState createState() => _CalendarState();
@@ -406,15 +413,17 @@ class _CalendarState extends State<Calendar> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          Expanded(
-                            flex: 5,
-                            child: Padding(
-                              padding: const EdgeInsets.all(4.0),
-                              child: Container(
-                                color: event.color,
-                              ),
-                            ),
-                          ),
+                          widget.eventColorVisible
+                              ? Expanded(
+                                  flex: 5,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Container(
+                                      color: event.color,
+                                    ),
+                                  ),
+                                )
+                              : const SizedBox.shrink(),
                           Expanded(
                             flex: 75,
                             child: Container(
@@ -424,10 +433,16 @@ class _CalendarState extends State<Calendar> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(event.summary,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle2),
-                                  Text(event.description)
+                                      style: widget.eventTileSummaryTextStyle ??
+                                          Theme.of(context)
+                                              .textTheme
+                                              .subtitle2),
+                                  Text(
+                                    event.description,
+                                    style:
+                                        widget.eventTileDescriptionTextStyle ??
+                                            TextStyle(),
+                                  )
                                 ],
                               ),
                             ),
@@ -441,13 +456,17 @@ class _CalendarState extends State<Calendar> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(start,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyText1),
+                                      style:
+                                          widget.eventTileTrailingTextStyle ??
+                                              Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText1),
                                   Text(end,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyText1),
+                                      style:
+                                          widget.eventTileTrailingTextStyle ??
+                                              Theme.of(context)
+                                                  .textTheme
+                                                  .bodyText1),
                                 ],
                               ),
                             ),
