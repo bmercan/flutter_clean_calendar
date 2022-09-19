@@ -386,6 +386,7 @@ class _CalendarState extends State<Calendar> {
                   final String end =
                       DateFormat('HH:mm').format(event.endTime).toString();
                   return Container(
+                    color: Colors.red,
                     height: 60.0,
                     child: InkWell(
                       onTap: () {
@@ -409,7 +410,6 @@ class _CalendarState extends State<Calendar> {
                             flex: 75,
                             child: Container(
                               padding: const EdgeInsets.all(8.0),
-                              color: Colors.red,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
