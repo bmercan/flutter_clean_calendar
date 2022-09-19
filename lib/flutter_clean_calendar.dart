@@ -405,8 +405,8 @@ class _CalendarState extends State<Calendar> {
                   return Container(
                     decoration: widget.eventTileDecoration ??
                         BoxDecoration(
-                          color: widget.eventTileColor ?? event.color,
-                        ),
+                            color: widget.eventTileColor ?? event.color,
+                            borderRadius: BorderRadius.circular(16)),
                     height: 60.0,
                     margin: widget.eventTileMargin ?? EdgeInsets.all(0),
                     padding: widget.eventTilePadding ?? EdgeInsets.all(0),
