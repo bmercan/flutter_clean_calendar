@@ -101,42 +101,45 @@ class Calendar extends StatefulWidget {
   final TextStyle? eventTileSummaryTextStyle;
   final TextStyle? eventTileDescriptionTextStyle;
   final bool eventColorVisible;
+  final BoxDecoration? eventTileDecoration;
 
-  Calendar(
-      {this.onMonthChanged,
-      this.onDateSelected,
-      this.onRangeSelected,
-      this.onExpandStateChanged,
-      this.onEventSelected,
-      this.hideBottomBar: false,
-      this.isExpandable: false,
-      this.events,
-      this.dayBuilder,
-      this.eventListBuilder,
-      this.hideTodayIcon: false,
-      this.hideArrows: false,
-      this.selectedColor,
-      this.todayColor,
-      this.todayButtonText: 'Today',
-      this.eventColor,
-      this.eventDoneColor,
-      this.initialDate,
-      this.isExpanded = false,
-      this.weekDays = const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-      this.locale = 'en_US',
-      this.startOnMonday = false,
-      this.dayOfWeekStyle,
-      this.bottomBarTextStyle,
-      this.bottomBarArrowColor,
-      this.bottomBarColor,
-      this.expandableDateFormat = 'EEEE MMMM dd, yyyy',
-      this.eventTileColor,
-      this.eventTilePadding,
-      this.eventTileMargin,
-      this.eventTileTrailingTextStyle,
-      this.eventColorVisible = true,
-      this.eventTileDescriptionTextStyle,
-      this.eventTileSummaryTextStyle});
+  Calendar({
+    this.onMonthChanged,
+    this.onDateSelected,
+    this.onRangeSelected,
+    this.onExpandStateChanged,
+    this.onEventSelected,
+    this.hideBottomBar: false,
+    this.isExpandable: false,
+    this.events,
+    this.dayBuilder,
+    this.eventListBuilder,
+    this.hideTodayIcon: false,
+    this.hideArrows: false,
+    this.selectedColor,
+    this.todayColor,
+    this.todayButtonText: 'Today',
+    this.eventColor,
+    this.eventDoneColor,
+    this.initialDate,
+    this.isExpanded = false,
+    this.weekDays = const ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    this.locale = 'en_US',
+    this.startOnMonday = false,
+    this.dayOfWeekStyle,
+    this.bottomBarTextStyle,
+    this.bottomBarArrowColor,
+    this.bottomBarColor,
+    this.expandableDateFormat = 'EEEE MMMM dd, yyyy',
+    this.eventTileColor,
+    this.eventTilePadding,
+    this.eventTileMargin,
+    this.eventTileTrailingTextStyle,
+    this.eventColorVisible = true,
+    this.eventTileDescriptionTextStyle,
+    this.eventTileSummaryTextStyle,
+    this.eventTileDecoration,
+  });
 
   @override
   _CalendarState createState() => _CalendarState();
@@ -400,6 +403,7 @@ class _CalendarState extends State<Calendar> {
                   final String end =
                       DateFormat('HH:mm').format(event.endTime).toString();
                   return Container(
+                    decoration: widget.eventTileDecoration ?? BoxDecoration(),
                     color: widget.eventTileColor ?? Colors.transparent,
                     height: 60.0,
                     margin: widget.eventTileMargin ?? EdgeInsets.all(0),
