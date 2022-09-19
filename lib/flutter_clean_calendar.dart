@@ -407,8 +407,9 @@ class _CalendarState extends State<Calendar> {
                           ),
                           Expanded(
                             flex: 75,
-                            child: Padding(
+                            child: Container(
                               padding: const EdgeInsets.all(8.0),
+                              color: Colors.red,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
