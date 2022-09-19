@@ -102,6 +102,7 @@ class Calendar extends StatefulWidget {
   final TextStyle? eventTileDescriptionTextStyle;
   final bool eventColorVisible;
   final BoxDecoration? eventTileDecoration;
+  final Color? calendarTextColor;
 
   Calendar({
     this.onMonthChanged,
@@ -139,6 +140,7 @@ class Calendar extends StatefulWidget {
     this.eventTileDescriptionTextStyle,
     this.eventTileSummaryTextStyle,
     this.eventTileDecoration,
+    this.calendarTextColor = Colors.black,
   });
 
   @override
@@ -196,7 +198,10 @@ class _CalendarState extends State<Calendar> {
 
     if (!widget.hideTodayIcon) {
       todayIcon = InkWell(
-        child: Text(widget.todayButtonText),
+        child: Text(
+          widget.todayButtonText,
+          style: TextStyle(color: widget.calendarTextColor),
+        ),
         onTap: resetToToday,
       );
     } else {
@@ -212,9 +217,7 @@ class _CalendarState extends State<Calendar> {
             todayIcon ?? Container(),
             Text(
               displayMonth,
-              style: TextStyle(
-                fontSize: 20.0,
-              ),
+              style: TextStyle(fontSize: 20.0, color: widget.calendarTextColor),
             ),
           ],
         ),
