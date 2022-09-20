@@ -6,7 +6,7 @@ class CleanCalendarEvent {
   String location;
   DateTime startTime;
   DateTime endTime;
-  Color color;
+  List<Color> color;
   bool isAllDay;
   bool isDone;
   String mukellefAdi;
@@ -17,7 +17,7 @@ class CleanCalendarEvent {
       this.location = '',
       required this.startTime,
       required this.endTime,
-      this.color = Colors.blue,
+      this.color = const [Colors.blue],
       this.isAllDay = false,
       this.isDone = false,
       required this.mukellefAdi,

@@ -408,7 +408,7 @@ class _CalendarState extends State<Calendar> {
                   return Container(
                     decoration: widget.eventTileDecoration ??
                         BoxDecoration(
-                            color: widget.eventTileColor ?? event.color,
+                            color: widget.eventTileColor ?? event.color[0],
                             borderRadius: BorderRadius.circular(16)),
                     //height: 60.0,
                     margin: widget.eventTileMargin ?? EdgeInsets.all(0),
@@ -422,17 +422,6 @@ class _CalendarState extends State<Calendar> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          widget.eventColorVisible
-                              ? Expanded(
-                                  flex: 5,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: Container(
-                                      color: event.color,
-                                    ),
-                                  ),
-                                )
-                              : const SizedBox.shrink(),
                           Expanded(
                             flex: 75,
                             child: Container(
