@@ -11,15 +11,19 @@ class CleanCalendarEvent {
   bool isDone;
   String mukellefAdi;
   String mukellefUid;
+  String docId;
 
-  CleanCalendarEvent(this.summary,
-      {this.description = '',
-      this.location = '',
-      required this.startTime,
-      required this.endTime,
-      this.color = const [Colors.blue],
-      this.isAllDay = false,
-      this.isDone = false,
-      required this.mukellefAdi,
-      required this.mukellefUid});
+  CleanCalendarEvent(
+    this.summary, {
+    this.description = '',
+    this.location = '',
+    required this.startTime,
+    required this.endTime,
+    this.color = const [Colors.blue],
+    this.isAllDay = false,
+    this.isDone = false,
+    required this.mukellefAdi,
+    required this.mukellefUid,
+    required this.docId,
+  });
 }
