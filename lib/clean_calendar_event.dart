@@ -9,6 +9,8 @@ class CleanCalendarEvent {
   Color color;
   bool isAllDay;
   bool isDone;
+  String mukellefAdi;
+  String mukellefUid;
 
   CleanCalendarEvent(this.summary,
       {this.description = '',
@@ -17,5 +19,7 @@ class CleanCalendarEvent {
       required this.endTime,
       this.color = Colors.blue,
       this.isAllDay = false,
-      this.isDone = false});
+      this.isDone = false,
+      required this.mukellefAdi,
+      required this.mukellefUid});
 }
