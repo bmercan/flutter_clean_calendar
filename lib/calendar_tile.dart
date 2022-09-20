@@ -105,7 +105,7 @@ class CalendarTile extends StatelessWidget {
                   date != null ? DateFormat("d").format(date!) : '',
                   style: TextStyle(
                       fontSize: 14.0,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.bold,
                       color: isSelected && this.date != null
                           ? Colors.white
                           : Utils.isSameDay(this.date!, DateTime.now())
