@@ -398,6 +398,7 @@ class _CalendarState extends State<Calendar> {
       return Expanded(
         child: _selectedEvents != null && _selectedEvents!.isNotEmpty
             ? ListView.builder(
+                physics: BouncingScrollPhysics(),
                 padding: EdgeInsets.all(0.0),
                 itemBuilder: (BuildContext context, int index) {
                   final CleanCalendarEvent event = _selectedEvents![index];
