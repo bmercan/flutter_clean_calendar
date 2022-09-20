@@ -105,13 +105,13 @@ class CalendarTile extends StatelessWidget {
                   date != null ? DateFormat("d").format(date!) : '',
                   style: TextStyle(
                       fontSize: 14.0,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: inMonth ? FontWeight.bold : FontWeight.normal,
                       color: isSelected && this.date != null
-                          ? Colors.white38
+                          ? Colors.white
                           : Utils.isSameDay(this.date!, DateTime.now())
                               ? todayColor
                               : inMonth
-                                  ? Colors.white38
+                                  ? Colors.white60
                                   : Colors
                                       .white24), // Grey color for previous or next months dates
                 ),
