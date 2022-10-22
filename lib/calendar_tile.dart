@@ -124,8 +124,13 @@ class CalendarTile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: events!.map((event) {
                           if (!event.isDone) {
+                            print("done : ${event.summary} ${event.isDone}");
                             eventCount++;
+                          } else {
+                            print(
+                                "not done : ${event.summary} ${event.isDone}");
                           }
+
                           // Show a maximum of 3 dots.
                           if (eventCount > 3) return SizedBox();
                           return Container(
