@@ -125,7 +125,7 @@ class CalendarTile extends StatelessWidget {
                         children: events!.map((event) {
                           if (!event.isDone) eventCount++;
                           // Show a maximum of 3 dots.
-                          if (eventCount > 3) return Container();
+                          if (eventCount > 3) return SizedBox();
                           return Container(
                             margin: EdgeInsets.only(
                                 left: 2.0, right: 2.0, top: 1.0),
@@ -140,9 +140,9 @@ class CalendarTile extends StatelessWidget {
                                 // color property of the CleanCalendarEvent. If both aren't set, then
                                 // the accent color of the theme get used.
                                 color: (() {
-                                  if (event.isDone)
+                                  /*     if (event.isDone)
                                     return eventDoneColor ??
-                                        Theme.of(context).primaryColor;
+                                        Theme.of(context).primaryColor; */
                                   if (isSelected) return Colors.white;
                                   return eventColor ??
                                       Theme.of(context).accentColor;
