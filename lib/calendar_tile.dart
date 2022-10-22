@@ -112,8 +112,11 @@ class CalendarTile extends StatelessWidget {
                               ? todayColor
                               : inMonth
                                   ? Theme.of(context).colorScheme.inverseSurface
-                                  : Colors
-                                      .white24), // Grey color for previous or next months dates
+                                  : Theme.of(context)
+                                      .colorScheme
+                                      .inverseSurface
+                                      .withOpacity(
+                                          .5)), // %50 opacity inversesurfacecolor for previous or next months dates
                 ),
                 // Dots for the events
                 events != null && events!.length > 0
