@@ -124,38 +124,42 @@ class CalendarTile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: events!.map((event) {
                           if (!event.isDone) {
-                            print(
-                                "not done : ${event.summary} ${event.isDone}");
-                            eventCount++;
-                          } else {
-                            eventCount--;
-                            print("done : ${event.summary} ${event.isDone}");
-                          }
-                          print("${event.summary} eventCount : $eventCount");
-                          // Show a maximum of 3 dots.
-                          if (eventCount > 3) return SizedBox();
-                          return Container(
-                            margin: EdgeInsets.only(
-                                left: 2.0, right: 2.0, top: 1.0),
-                            width: 5.0,
-                            height: 5.0,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                // If event is done (isDone == true) set the color of the dots to
-                                // the eventDoneColor (if given) otherwise use the primary color of
-                                // the theme
-                                // If the event is now donw yet, we use the given eventColor or the
-                                // color property of the CleanCalendarEvent. If both aren't set, then
-                                // the accent color of the theme get used.
-                                color: (() {
-                                  /*     if (event.isDone)
+                            if (!event.isDone) {
+                              print(
+                                  "not done : ${event.summary} ${event.isDone}");
+                              eventCount++;
+                            } else {
+                              eventCount--;
+                              print("done : ${event.summary} ${event.isDone}");
+                            }
+                            print("${event.summary} eventCount : $eventCount");
+                            // Show a maximum of 3 dots.
+                            if (eventCount > 3) return SizedBox();
+                            return Container(
+                              margin: EdgeInsets.only(
+                                  left: 2.0, right: 2.0, top: 1.0),
+                              width: 5.0,
+                              height: 5.0,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  // If event is done (isDone == true) set the color of the dots to
+                                  // the eventDoneColor (if given) otherwise use the primary color of
+                                  // the theme
+                                  // If the event is now donw yet, we use the given eventColor or the
+                                  // color property of the CleanCalendarEvent. If both aren't set, then
+                                  // the accent color of the theme get used.
+                                  color: (() {
+                                    /*     if (event.isDone)
                                     return eventDoneColor ??
                                         Theme.of(context).primaryColor; */
-                                  if (isSelected) return Colors.white;
-                                  return eventColor ??
-                                      Theme.of(context).accentColor;
-                                }())),
-                          );
+                                    if (isSelected) return Colors.white;
+                                    return eventColor ??
+                                        Theme.of(context).accentColor;
+                                  }())),
+                            );
+                          } else {
+                            return SizedBox();
+                          }
                         }).toList())
                     : SizedBox(),
               ],
