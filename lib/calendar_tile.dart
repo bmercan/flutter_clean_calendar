@@ -131,7 +131,7 @@ class CalendarTile extends StatelessWidget {
                             eventCount--;
                             print("done : ${event.summary} ${event.isDone}");
                           }
-
+                          print("${event.summary} eventCount : $eventCount");
                           // Show a maximum of 3 dots.
                           if (eventCount > 3) return SizedBox();
                           return Container(
