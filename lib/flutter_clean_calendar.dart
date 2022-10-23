@@ -227,31 +227,31 @@ class _CalendarState extends State<Calendar> {
   }
 
   Widget get calendarGridView {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5),
-      decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
-      child: SimpleGestureDetector(
-        onSwipeUp: _onSwipeUp,
-        onSwipeDown: _onSwipeDown,
-        onSwipeLeft: _onSwipeLeft,
-        onSwipeRight: _onSwipeRight,
-        swipeConfig: SimpleSwipeConfig(
-          verticalThreshold: 10.0,
-          horizontalThreshold: 40.0,
-          swipeDetectionMoment: SwipeDetectionMoment.onUpdate,
-        ),
-        child: Column(children: <Widget>[
-          GridView.count(
-            childAspectRatio: 1.5,
-            primary: false,
-            shrinkWrap: true,
-            crossAxisCount: 7,
-            padding: EdgeInsets.only(bottom: 0.0),
-            children: calendarBuilder(),
+    return ClipRRect(
+      borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 5),
+        child: SimpleGestureDetector(
+          onSwipeUp: _onSwipeUp,
+          onSwipeDown: _onSwipeDown,
+          onSwipeLeft: _onSwipeLeft,
+          onSwipeRight: _onSwipeRight,
+          swipeConfig: SimpleSwipeConfig(
+            verticalThreshold: 10.0,
+            horizontalThreshold: 40.0,
+            swipeDetectionMoment: SwipeDetectionMoment.onUpdate,
           ),
-        ]),
+          child: Column(children: <Widget>[
+            GridView.count(
+              childAspectRatio: 1.5,
+              primary: false,
+              shrinkWrap: true,
+              crossAxisCount: 7,
+              padding: EdgeInsets.only(bottom: 0.0),
+              children: calendarBuilder(),
+            ),
+          ]),
+        ),
       ),
     );
   }
