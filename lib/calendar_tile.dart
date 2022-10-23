@@ -67,8 +67,6 @@ class CalendarTile extends StatelessWidget {
     // case, we return a widget, that contains a text widget with style property [dayOfWeekStyle]
     if (isDayOfWeek) {
       return new InkWell(
-        splashColor: Colors.red,
-        customBorder: CircleBorder(),
         child: new Container(
           alignment: Alignment.center,
           child: Text(
