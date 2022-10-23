@@ -409,7 +409,12 @@ class _CalendarState extends State<Calendar> {
                   return Container(
                     decoration: widget.eventTileDecoration ??
                         BoxDecoration(
-                            color: widget.eventTileColor ?? event.color[0],
+                            color: event.isDone
+                                ? Theme.of(context)
+                                    .colorScheme
+                                    .inverseSurface
+                                    .withOpacity(.2)
+                                : widget.eventTileColor ?? event.color[0],
                             borderRadius: BorderRadius.circular(16)),
                     //height: 60.0,
                     margin: widget.eventTileMargin ?? EdgeInsets.all(0),
@@ -432,16 +437,31 @@ class _CalendarState extends State<Calendar> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(event.summary,
-                                      style: widget.eventTileSummaryTextStyle ??
-                                          Theme.of(context)
+                                      style: event.isDone
+                                          ? Theme.of(context)
+                                              .textTheme
+                                              .subtitle2!
+                                              .copyWith(
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .inverseSurface
+                                                      .withOpacity(.5))
+                                          : Theme.of(context)
                                               .textTheme
                                               .subtitle2),
                                   SizedBox(height: 5),
                                   Text(
                                     event.description,
-                                    style:
-                                        widget.eventTileDescriptionTextStyle ??
-                                            TextStyle(),
+                                    style: event.isDone
+                                        ? Theme.of(context)
+                                            .textTheme
+                                            .subtitle2!
+                                            .copyWith(
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .inverseSurface
+                                                    .withOpacity(.5))
+                                        : Theme.of(context).textTheme.subtitle2,
                                   )
                                 ],
                               ),
@@ -456,17 +476,31 @@ class _CalendarState extends State<Calendar> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(start,
-                                      style:
-                                          widget.eventTileTrailingTextStyle ??
-                                              Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1),
+                                      style: event.isDone
+                                          ? Theme.of(context)
+                                              .textTheme
+                                              .bodyText1!
+                                              .copyWith(
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .inverseSurface
+                                                      .withOpacity(.5))
+                                          : Theme.of(context)
+                                              .textTheme
+                                              .bodyText1),
                                   Text(end,
-                                      style:
-                                          widget.eventTileTrailingTextStyle ??
-                                              Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText1),
+                                      style: event.isDone
+                                          ? Theme.of(context)
+                                              .textTheme
+                                              .bodyText1!
+                                              .copyWith(
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .inverseSurface
+                                                      .withOpacity(.5))
+                                          : Theme.of(context)
+                                              .textTheme
+                                              .bodyText1),
                                 ],
                               ),
                             ),
