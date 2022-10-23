@@ -228,6 +228,7 @@ class _CalendarState extends State<Calendar> {
 
   Widget get calendarGridView {
     return Container(
+      color: Colors.red,
       child: SimpleGestureDetector(
         onSwipeUp: _onSwipeUp,
         onSwipeDown: _onSwipeDown,
