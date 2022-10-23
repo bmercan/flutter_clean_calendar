@@ -448,7 +448,8 @@ class _CalendarState extends State<Calendar> {
                                                       .withOpacity(.5))
                                           : Theme.of(context)
                                               .textTheme
-                                              .subtitle2),
+                                              .subtitle2!
+                                              .copyWith(color: Colors.white)),
                                   SizedBox(height: 5),
                                   Text(
                                     event.description,
@@ -461,7 +462,10 @@ class _CalendarState extends State<Calendar> {
                                                     .colorScheme
                                                     .inverseSurface
                                                     .withOpacity(.5))
-                                        : Theme.of(context).textTheme.subtitle2,
+                                        : Theme.of(context)
+                                            .textTheme
+                                            .subtitle2!
+                                            .copyWith(color: Colors.white),
                                   )
                                 ],
                               ),
@@ -487,7 +491,8 @@ class _CalendarState extends State<Calendar> {
                                                       .withOpacity(.5))
                                           : Theme.of(context)
                                               .textTheme
-                                              .bodyText1),
+                                              .bodyText1!
+                                              .copyWith(color: Colors.white)),
                                   Text(end,
                                       style: event.isDone
                                           ? Theme.of(context)
@@ -500,7 +505,8 @@ class _CalendarState extends State<Calendar> {
                                                       .withOpacity(.5))
                                           : Theme.of(context)
                                               .textTheme
-                                              .bodyText1),
+                                              .bodyText1!
+                                              .copyWith(color: Colors.white)),
                                 ],
                               ),
                             ),
