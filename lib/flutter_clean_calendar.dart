@@ -420,6 +420,7 @@ class _CalendarState extends State<Calendar> {
                     margin: widget.eventTileMargin ?? EdgeInsets.all(0),
                     padding: widget.eventTilePadding ?? EdgeInsets.all(0),
                     child: InkWell(
+                      splashColor: Colors.red,
                       customBorder: CircleBorder(),
                       onTap: () {
                         if (widget.onEventSelected != null) {
