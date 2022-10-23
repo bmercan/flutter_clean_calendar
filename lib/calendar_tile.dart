@@ -67,6 +67,8 @@ class CalendarTile extends StatelessWidget {
     // case, we return a widget, that contains a text widget with style property [dayOfWeekStyle]
     if (isDayOfWeek) {
       return new InkWell(
+        splashColor: Colors.red,
+        customBorder: CircleBorder(),
         child: new Container(
           alignment: Alignment.center,
           child: Text(
@@ -80,6 +82,8 @@ class CalendarTile extends StatelessWidget {
       // Every date tile can show up to three dots representing an event.
       int eventCount = 0;
       return InkWell(
+        splashColor: Colors.green,
+        customBorder: CircleBorder(),
         onTap: onDateSelected, // react on tapping
         child: Padding(
           padding: const EdgeInsets.all(1.0),
@@ -168,6 +172,8 @@ class CalendarTile extends StatelessWidget {
     // be rendered to display weekday or date
     if (child != null) {
       return InkWell(
+        splashColor: Colors.blue,
+        customBorder: CircleBorder(),
         child: child,
         onTap: onDateSelected,
       );
