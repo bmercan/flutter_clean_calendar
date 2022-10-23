@@ -228,7 +228,6 @@ class _CalendarState extends State<Calendar> {
 
   Widget get calendarGridView {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5),
       child: SimpleGestureDetector(
         onSwipeUp: _onSwipeUp,
         onSwipeDown: _onSwipeDown,
@@ -530,9 +529,6 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
