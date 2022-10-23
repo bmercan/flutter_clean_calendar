@@ -230,6 +230,7 @@ class _CalendarState extends State<Calendar> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
+          color: Colors.red,
           borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
       child: SimpleGestureDetector(
         onSwipeUp: _onSwipeUp,
