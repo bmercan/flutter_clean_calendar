@@ -332,7 +332,7 @@ class _CalendarState extends State<Calendar> {
 
   TextStyle? configureDateStyle(monthStarted, monthEnded) {
     TextStyle? dateStyles;
-    final TextStyle? body1Style = Theme.of(context).textTheme.bodyText2;
+    final TextStyle? body1Style = Theme.of(context).textTheme.bodyMedium;
 
     if (isExpanded) {
       final TextStyle body1StyleDisabled = body1Style!.copyWith(
@@ -440,7 +440,7 @@ class _CalendarState extends State<Calendar> {
                                       style: event.isDone
                                           ? Theme.of(context)
                                               .textTheme
-                                              .subtitle2!
+                                              .bodyMedium!
                                               .copyWith(
                                                   color: Theme.of(context)
                                                       .colorScheme
@@ -448,7 +448,7 @@ class _CalendarState extends State<Calendar> {
                                                       .withOpacity(.5))
                                           : Theme.of(context)
                                               .textTheme
-                                              .subtitle2!
+                                              .bodyMedium!
                                               .copyWith(color: Colors.white)),
                                   SizedBox(height: 5),
                                   Text(
@@ -456,7 +456,7 @@ class _CalendarState extends State<Calendar> {
                                     style: event.isDone
                                         ? Theme.of(context)
                                             .textTheme
-                                            .subtitle2!
+                                            .bodyMedium!
                                             .copyWith(
                                                 color: Theme.of(context)
                                                     .colorScheme
@@ -464,7 +464,7 @@ class _CalendarState extends State<Calendar> {
                                                     .withOpacity(.5))
                                         : Theme.of(context)
                                             .textTheme
-                                            .subtitle2!
+                                            .bodyMedium!
                                             .copyWith(color: Colors.white),
                                   )
                                 ],
@@ -483,7 +483,7 @@ class _CalendarState extends State<Calendar> {
                                       style: event.isDone
                                           ? Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodySmall!
                                               .copyWith(
                                                   color: Theme.of(context)
                                                       .colorScheme
@@ -491,13 +491,13 @@ class _CalendarState extends State<Calendar> {
                                                       .withOpacity(.5))
                                           : Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodySmall!
                                               .copyWith(color: Colors.white)),
                                   Text(end,
                                       style: event.isDone
                                           ? Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodySmall!
                                               .copyWith(
                                                   color: Theme.of(context)
                                                       .colorScheme
@@ -505,7 +505,7 @@ class _CalendarState extends State<Calendar> {
                                                       .withOpacity(.5))
                                           : Theme.of(context)
                                               .textTheme
-                                              .bodyText1!
+                                              .bodySmall!
                                               .copyWith(color: Colors.white)),
                                 ],
                               ),
